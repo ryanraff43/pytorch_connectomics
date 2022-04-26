@@ -19,6 +19,7 @@ requirements = [
     'tensorflow>=2.2.0',
     'tensorboard>=2.2.2',
     'einops>=0.3.0',
+    'imgaug==0.2.5',
     'tqdm>=4.58.0',
 ]
 
