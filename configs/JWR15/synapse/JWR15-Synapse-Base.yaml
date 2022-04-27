@@ -1,6 +1,6 @@
 SYSTEM:
-  NUM_GPUS: 2
-  NUM_CPUS: 16
+  NUM_GPUS: 1
+  NUM_CPUS: 1
 MODEL:
   ARCHITECTURE: unet_plus_3d
   BLOCK_TYPE: residual_se
@@ -13,12 +13,10 @@ MODEL:
   FILTERS: [32, 64, 96, 128, 192]
 DATASET:
   IMAGE_NAME:
-    - vol3/im_Yx2.h5
-    - vol4/im_Yx2.h5
+    - data_img.h5
   LABEL_NAME:
-    - vol3/syn_Yx2.h5
-    - vol4/syn_Yx2.h5
-  INPUT_PATH: datasets/JWR15/roi_8x8x3um/
+    - data_syn.h5
+  INPUT_PATH: /content/
   OUTPUT_PATH: outputs/JWR15_Synapse/
   PAD_SIZE: [4, 48, 48]
   DISTRIBUTED: True
@@ -30,8 +28,8 @@ SOLVER:
   LR_SCHEDULER_NAME: WarmupCosineLR
   BASE_LR: 0.04
   ITERATION_STEP: 1
-  ITERATION_SAVE: 5000
-  ITERATION_TOTAL: 200000
+  ITERATION_SAVE: 100
+  ITERATION_TOTAL: 500
   SAMPLES_PER_BATCH: 2
 INFERENCE:
   INPUT_SIZE: [33, 257, 257]
@@ -39,8 +37,8 @@ INFERENCE:
   OUTPUT_ACT: ["sigmoid"]
   IS_ABSOLUTE_PATH: False
   DO_CHUNK_TITLE: 1
-  INPUT_PATH: datasets/JWR15/
-  IMAGE_NAME: jwr15.json
+  INPUT_PATH: /content/
+  IMAGE_NAME: data_syn.h5
   OUTPUT_PATH: outputs/JWR15_Synapse/test
   OUTPUT_NAME: result.h5
   PAD_SIZE: [8, 128, 128]
