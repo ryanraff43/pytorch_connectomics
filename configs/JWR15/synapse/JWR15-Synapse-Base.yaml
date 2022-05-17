@@ -38,7 +38,7 @@ INFERENCE:
   IS_ABSOLUTE_PATH: False
   DO_CHUNK_TITLE: 1
   INPUT_PATH: /content/
-  IMAGE_NAME: data_syn.h5
+  IMAGE_NAME: data_img.json
   OUTPUT_PATH: outputs/JWR15_Synapse/test
   OUTPUT_NAME: result.h5
   PAD_SIZE: [8, 128, 128]
